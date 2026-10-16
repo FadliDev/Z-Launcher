@@ -1,0 +1,60 @@
+name: Build Z Launcher
+
+on:
+  push:
+    branches: ["**"]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: "platform-tools platforms;android-35 build-tools;35.0.0"
+
+      - name: Setup Gradle (tanpa gradlew)
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
+
+      - name: Atur versi dari tag
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: echo "ZL_VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_ENV"
+
+      - name: Build APK debug
+        run: gradle :app:assembleDebug --no-daemon --stacktrace
+
+      - name: Ganti nama APK
+        run: |
+          VERSION="${ZL_VERSION:-dev-${GITHUB_RUN_NUMBER}}"
+          cp app/build/outputs/apk/debug/app-debug.apk "ZLauncher-${VERSION}.apk"
+          echo "APK_FILE=ZLauncher-${VERSION}.apk" >> "$GITHUB_ENV"
+
+      - name: Unggah APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: ZLauncher-apk
+          path: ${{ env.APK_FILE }}
+
+      - name: Rilis ke GitHub Releases (hanya tag v*)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.APK_FILE }}
+          generate_release_notes: true
