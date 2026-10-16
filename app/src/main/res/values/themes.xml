@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.ZLauncher" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/z_primary</item>
+        <item name="colorOnPrimary">@color/z_on_primary</item>
+        <item name="colorSurface">@color/z_surface</item>
+        <item name="colorOnSurface">@color/z_text</item>
+        <item name="colorSurfaceVariant">@color/z_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/z_text_dim</item>
+        <item name="colorError">@color/z_error</item>
+        <item name="android:colorBackground">@color/z_bg</item>
+        <item name="android:statusBarColor">@color/z_bg</item>
+        <item name="android:navigationBarColor">@color/z_bg</item>
+    </style>
+</resources>
