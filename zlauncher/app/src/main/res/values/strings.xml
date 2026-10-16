@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Z Launcher</string>
+    <string name="tagline">Launcher Minecraft Bedrock</string>
+
+    <string name="import_apk">Impor APK</string>
+    <string name="launch">Luncurkan</string>
+    <string name="delete">Hapus</string>
+    <string name="cancel">Batal</string>
+    <string name="ok">OK</string>
+
+    <string name="empty_title">Belum ada versi</string>
+    <string name="empty_hint">Ketuk Impor APK untuk menambahkan Minecraft Bedrock (.apk / .apks) milikmu.</string>
+
+    <string name="status_not_installed">Minecraft belum terpasang. Pasang dari Google Play lebih dulu.</string>
+    <string name="status_play_store">Minecraft terpasang dari Google Play · lisensi terverifikasi</string>
+    <string name="status_other_source">Minecraft terpasang bukan dari Google Play. Lisensi tidak bisa diverifikasi.</string>
+
+    <string name="installed_entry_name">Minecraft (terpasang)</string>
+    <string name="version_fmt">Versi %1$s</string>
+    <string name="meta_installed">Dijalankan lewat aplikasi resmi</string>
+
+    <string name="importing">Mengimpor…</string>
+    <string name="please_wait">Mohon tunggu, file sedang disalin dan diperiksa.</string>
+    <string name="import_done">Berhasil mengimpor versi %1$s</string>
+    <string name="import_failed">Impor gagal</string>
+
+    <string name="license_title">Lisensi diperlukan</string>
+    <string name="license_msg">Z Launcher hanya untuk pemilik Minecraft Bedrock yang sah. Pasang game dari Google Play dengan akun yang membelinya, lalu coba lagi.</string>
+
+    <string name="delete_title">Hapus versi?</string>
+    <string name="delete_message">%1$s beserta library hasil ekstraknya akan dihapus dari penyimpanan launcher.</string>
+
+    <string name="launch_prepared_title">Library siap</string>
+    <string name="launch_failed_title">Gagal meluncurkan</string>
+</resources>
