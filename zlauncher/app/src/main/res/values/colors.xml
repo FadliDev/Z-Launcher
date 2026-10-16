@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Palet Z Launcher: ubah di sini untuk ganti style seluruh aplikasi. -->
+    <color name="z_bg">#0F1115</color>
+    <color name="z_surface">#181B22</color>
+    <color name="z_surface_variant">#232733</color>
+    <color name="z_primary">#8B7CFF</color>
+    <color name="z_on_primary">#0F1115</color>
+    <color name="z_text">#ECEEF4</color>
+    <color name="z_text_dim">#9AA0B4</color>
+    <color name="z_error">#FF6B6B</color>
+    <color name="z_icon_bg">#1B1530</color>
+</resources>
