@@ -38,7 +38,28 @@ jobs:
         run: echo "ZL_VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_ENV"
 
       - name: Build APK debug
-        run: gradle :app:assembleDebug --no-daemon --stacktrace
+        shell: bash
+        run: |
+          set -o pipefail
+          gradle :app:assembleDebug --no-daemon --console=plain 2>&1 | tee build.log
+
+      - name: Ringkas error build
+        if: failure()
+        shell: bash
+        run: |
+          {
+            echo "## Error build"
+            echo '```'
+            grep -E '^e: |error:|What went wrong' -A2 build.log | head -80 || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Unggah log build (jika gagal)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: build.log
 
       - name: Ganti nama APK
         run: |
